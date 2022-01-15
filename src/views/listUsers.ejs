@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%-include ('partials/head.ejs') %> 
+    <style>
+        ul li {
+            font-size: 20px;
+        }
+    </style>
+<body>
+    
+    <h1> <%= titlepag %> </h1> 
+
+    
+    <%-include ('partials/navbar.ejs')  %>
+
+    <ul>
+        <% users.forEach((user) => {   %> 
+            
+            <li >
+                <%= user.name %>  - <%= user.email %>   - Idade: <%= user.age %> 
+            </li>
+            
+        <% }) %> 
+    </ul>
+
+    <%-include ('partials/foot.ejs')  %> 
+</body>
+</html>

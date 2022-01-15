@@ -1,7 +1,12 @@
-
-const { resolve4 } = require('dns')
 const express = require('express')
 const path = require('path')
+
+
+const db = require('./database')
+const routes = require('./routes')
+
+db.connect()
+
 
 const app = express()
 
@@ -20,12 +25,8 @@ app.use(express.urlencoded({ extended: true}))
 
 
 // criando rota
-app.get('/', (req, res) => {
-    res.render('index' , {
-        title: 'titulo teste'
-    })
-})
 
+app.use('/', routes)
 
 // 404 error
 app.use((req, res) =>{
